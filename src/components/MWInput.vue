@@ -1,32 +1,31 @@
 <script lang="ts" setup>
 
-import { i18n } from '../i18n/i18n'
+import { reactive } from 'vue';
 
-defineProps({
+const props = defineProps({
     labelKey: String,
-    type: String
+    type: String,
+    rules: Array
 });
 
-let rules = [
-    v => !!v || i18n.global.messages['de'].messages.rules.noUsername
-]
+let data = reactive({ text: '' })
 
 </script>
 
 
 <template>
-
     <div>
         <v-text-field
         :type="type"
         variant="outlined"
         :label="$t(labelKey)"
         class="rounded-0"
-        :rules="rules"
+        :rules="props.rules"
+        v-model="data.text"
         required
+        @keyup="$emit('input-change', data.text)"
         ></v-text-field>
     </div>
-
 </template>
 
 <style scoped>

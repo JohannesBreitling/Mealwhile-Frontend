@@ -6,10 +6,22 @@ export const messages = {
             login: 'anmelden'
         },
 
+        errors: {
+            title: {
+                wrongPassword: 'Falsches Passwort',
+                userNotFound: 'Nutzer nicht gefunden'
+            },
+
+            message: {
+                wrongPassword: 'Das angegebene Passwort ist falsch.',
+                userNotFound: 'Kein Nutzer mit diesem Nutzernamen gefunden.'
+            }
+        },
+
         messages: {
             rules: {
                 noUsername: 'Du musst einen Nutzernamen angeben.',
-                noPassword: 'Du musst dein Passwort angeben.'
+                noPassword: 'Du musst ein Passwort angeben.'
             }
         },
 
@@ -28,7 +40,19 @@ export const messages = {
         messages: {
             rules: {
                 noUsername: 'You have to provide a username.',
-                noPassword: 'You have to provide your password.'
+                noPassword: 'You have to provide a password.'
+            }
+        },
+
+        errors: {
+            title: {
+                wrongPassword: 'Wrong password',
+                userNotFound: 'User not found'
+            },
+
+            message: {
+                wrongPassword: 'The provided password is wrong.',
+                userNotFound: 'No user with that username is found.'
             }
         },
 

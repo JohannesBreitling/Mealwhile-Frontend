@@ -9,7 +9,7 @@ defineProps({
 
 <template>
     <div class="mw-button">
-        <v-btn color="#68a32e" hide-details elevation="0" variant="outlined" block :type="type">{{ $t(labelKey) }}</v-btn>
+        <v-btn color="var(--primary-color)" hide-details elevation="0" variant="outlined" block :type="type">{{ $t(labelKey) }}</v-btn>
     </div>
 </template>
 
