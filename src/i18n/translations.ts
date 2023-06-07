@@ -3,7 +3,11 @@ export const messages = {
         keywords: {
             username: 'Nutzername',
             password: 'Passwort',
-            login: 'anmelden'
+            login: 'anmelden',
+            userGroup: 'Nutzergruppe',
+            firstname: 'Vorname',
+            lastname: 'Nachname',
+            register: 'Registrieren'
         },
 
         errors: {
@@ -21,12 +25,26 @@ export const messages = {
         messages: {
             rules: {
                 noUsername: 'Du musst einen Nutzernamen angeben.',
-                noPassword: 'Du musst ein Passwort angeben.'
-            }
+                noPassword: 'Du musst ein Passwort angeben.',
+                noFirstname: 'Du musst deinen Vornamen angeben',
+                noLastname: 'Du musst deinen Nachnamen angeben',
+                shortPassword: 'Dein Passwort muss aus mindestens 8 Zeichen bestehen.',
+                wrongUserGroupLength: 'Die ID der Nutzergruppe muss aus 12 Zeichen bestehen.'
+            },
+
+            noAccount: 'Kein Account? Registrieren...',
+            loadUsername: 'Prüfe Nutzernamen...',
+            usernameAvaiable: 'Nutzername verfügbar!',
+            usernameNotAvaiable: 'Nutzername leider nicht verfügbar.'
         },
 
         login: {
             message: 'Bei Mealwhile anmelden'
+        },
+
+        register: {
+            message: 'Bei Mealwhile registrieren',
+            userGroupInfo: 'Gib die ID der Nutzergruppe an, die du von deinem Eventleiter erhalten hast.'
         }
     },
 
@@ -41,7 +59,9 @@ export const messages = {
             rules: {
                 noUsername: 'You have to provide a username.',
                 noPassword: 'You have to provide a password.'
-            }
+            },
+
+            noAccount: 'No Account? Register...'
         },
 
         errors: {

@@ -1,21 +1,36 @@
+import { tokenService } from '@/token/TokenService'
 import axios from 'axios'
+
+const API_VERSION = 1
+const BASE_URL = "http://localhost:8080/api/v" + API_VERSION + "/"
+
+let instance = axios.create({
+    baseURL: BASE_URL,
+    timeout: 5000,
+    headers: {'Authorization': 'Bearer ' + tokenService.getToken()}
+})
+
+let authInstance = axios.create({
+    baseURL: BASE_URL,
+    timeout: 5000
+})
 
 class MWApiCaller {
 
-    BASE_URL = "http://localhost:8080/api/v1/"
+    async post(url: string, body: object, headers: boolean) {
+        if (headers) {
+            return await instance.post(url, body)
+        }
 
-    async post(url: string, body: object) {
-        return await axios.post(this.BASE_URL + url, body)
+        return authInstance.post(url, body)
     }
 
-    get(url: string) {
-        axios
-        .get(url)
-        .then((response) => {
-            return response
-        }).catch((error) => {
-            throw error
-        })
+    async get(url: string, headers: boolean) {
+        if (headers) {
+            return await instance.get(url)
+        }
+
+        return await authInstance.get(url)
     }
 
 }

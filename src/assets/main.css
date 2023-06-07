@@ -4,6 +4,8 @@
     --primary-color: #68a32e;
     --primary-color-dark: #233710;
 
+    --text-color-secondary: #636363;
+
     --text-light: #ffffff;
 }
 
@@ -24,4 +26,13 @@
 
 .mw-clickable {
     cursor: pointer;
+}
+
+.mw-link-secondary {
+    font-size: 14px;
+    color: var(--text-color-secondary);
+}
+
+.mw-form {
+    min-width: 500px;
 }

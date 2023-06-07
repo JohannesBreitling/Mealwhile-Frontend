@@ -32,6 +32,13 @@ class TokenService {
           return null;
     }
 
+    clearToken() {
+      const d = new Date()
+      d.setTime(0)
+      let expires = "expires=" + d.toUTCString()
+      document.cookie = this.COOKIE_NAME + "=" + "token" + ";" + expires + ";path=/"
+    }
+
 }
 
 export const tokenService = new TokenService()
