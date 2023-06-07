@@ -10,6 +10,8 @@ import { authHandler } from '../api/MWAuthHandler'
 import MWErrorAlertVue from "../components/MWErrorAlert.vue";
 
 import { i18n } from "@/i18n/i18n";
+import { tokenService } from "@/token/TokenService";
+import router from "@/router";
 
 let data: { username : string, password: string, userNotFound: boolean, wrongPassword: boolean } = reactive({
     username: '',
@@ -18,11 +20,10 @@ let data: { username : string, password: string, userNotFound: boolean, wrongPas
     wrongPassword: false
 });
 
-const rules = {
+const rules = reactive({
     noUsername: v => !!v || i18n.global.t('messages.rules.noUsername'),
     noPassword: v => !!v || i18n.global.t('messages.rules.noPassword'),
-}
-
+})
 
 let emit = defineEmits(['page-error'])
 
@@ -52,9 +53,12 @@ let login = async () => {
     }
 
     // save token and navigate to homepage
-    console.log(response.data['token'])
+    tokenService.saveToken(response.data['token'])
+    console.debug("Token saved to cookie")
     data.userNotFound = false
     data.wrongPassword = false
+
+    router.push({ name: 'home' });
 }
 
 </script>
